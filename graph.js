@@ -13,6 +13,19 @@ const graph = svg.append('g')
   .attr('height', graphHeight)
   .attr('transform', `translate(${margin.left}, ${margin.top})`)
 
+// scales
+const x = d3.scaleTime().range([0,graphWidth]);
+const y = d3.scaleLinear().range([graphHeight, 0]);
+
+// axes groups
+const xAxisGroup = graph.append('g')
+  .attr('class', 'x-axis')
+  .attr('transform', `translate(0, ${graphgraphHeight})`)
+
+const yAxisGroup = graph.append('g')
+  .attr('class', 'y-axis')
+
+
 const update = (data) => {
   console.log(data);
 }
