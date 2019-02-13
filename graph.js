@@ -39,6 +39,9 @@ const update = (data) => {
 
   data = data.filter(item => item.activity == activity);
 
+  // sort data based on date objects
+  data.sort((a, b) => new Date(a.date) - new Date(b.date))
+
   // set scale domains
   x.domain(d3.extent(data, d => new Date(d.date)));
   y.domain([0, d3.max(data, d => d.distance)])
