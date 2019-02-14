@@ -1,7 +1,17 @@
 // graph diminstions and margins
-const margin = { top: 40, right: 20, bottom: 50, left: 100 };
-const graphWidth = 560 - margin.left - margin.right;
-const graphHeight = 400 - margin.top - margin.bottom;
+const margin = { top: 40, right: 20, bottom: 50, left: 55 };
+let w = document.body.clientWidth
+let graphWidth;
+let graphHeightl
+console.log(w);
+
+if (w <= 414) {
+  graphWidth = 380 - margin.left - margin.right;
+  graphHeight = 300 - margin.top - margin.bottom;
+} else {
+  graphWidth = 680 - margin.left - margin.right;
+  graphHeight = 550 - margin.top - margin.bottom;
+}
 
 const svg = d3.select('.canvas')
   .append('svg')
@@ -124,9 +134,16 @@ const update = (data) => {
     })
 
   // create axes
-  const xAxis = d3.axisBottom(x)
-    .ticks(4)
+  let xAxis;
+  if (w <= 414) {
+    xAxis = d3.axisBottom(x)
+    .ticks(10)
     .tickFormat(d3.timeFormat('%b %d'))
+  } else {
+    xAxis = d3.axisBottom(x)
+    .ticks(15)
+    .tickFormat(d3.timeFormat('%b %d'))
+  }
 
   const yAxis = d3.axisLeft(y)
     .ticks(4)

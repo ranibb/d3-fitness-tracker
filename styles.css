@@ -1,7 +1,14 @@
-.nav{
+@media only screen and (min-width: 601px) {
+  .container {
+    width: 96%;
+  }
+}
+
+.nav {
   background: #333
 }
-button{
+
+button {
   background: #333 !important;
   margin-bottom: 20px;
   width: 100%;
@@ -12,16 +19,22 @@ button{
   border-radius: 4px;
   cursor: pointer;
 }
-button.active{
+
+button.active {
   background: #00bfa5 !important;
 }
-form span{
+
+form span {
   color: #00bfa5 !important;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 30px;
 }
-.x-axis path, .y-axis path,
-.x-axis line, .y-axis line {
+
+.x-axis path, .y-axis path, .x-axis line, .y-axis line {
   stroke: #ccc;
 }
+
 .x-axis text, .y-axis text {
   fill: #ccc;
   font-size: 14px;
